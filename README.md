@@ -4,7 +4,7 @@ Team Members:
 
 Md.jakaria - Roll Number: 20220104141, Email: jakaria.cse.20220104141@aust.edu, Role:Lead
 Md.Redwan - Roll Number: 20220104147, Email: redwan.cse.20220104147@aust.edu, Role: Front-end Developer
-Md.Rabbi - Roll Number: 20220104138, Email: rabbi.cse.20220104138@aust.edu, Role: Back-end Developer
+Md.Rabbi - Roll Number: 20220104138, Email: fazlay.cse.20220104138@aust.edu, Role: Back-end Developer
 
 
 Project Title: BookStore 
