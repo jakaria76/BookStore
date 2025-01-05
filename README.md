@@ -58,3 +58,5 @@ Submitted by:
 Md.Jakaria
 Lab Group C2
 CSE, 3rd Year/1st Semester
+
+Mock UI Link: www.canva.com/design/DAGbPxAHHfM/W09yBAodC7NuwJp3qJVNCA/view?mode=prototype
