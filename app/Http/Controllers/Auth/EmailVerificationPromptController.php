@@ -11,12 +11,17 @@ use Illuminate\View\View;
 class EmailVerificationPromptController extends Controller
 {
     /**
-     * Display the email verification prompt.
+     * Email verification prompt dekhabe.
+     *
+     * Ei method ta check korbe je user tar email verify koreche ki na.
+     * Jodi verify kora thake, tahole home page e redirect korbe.
+     * Na hole "verify email" page ta show korbe.
      */
     public function __invoke(Request $request): RedirectResponse|View
     {
         return $request->user()->hasVerifiedEmail()
-                    ? redirect()->intended(RouteServiceProvider::HOME)
-                    : view('auth.verify-email');
+            // Jodi user er email verify kora thake
+            ? redirect()->intended(RouteServiceProvider::HOME) // Tahole take home page e pathabe
+            : view('auth.verify-email'); // Na hole "Verify Email" page ta dekhabe
     }
 }
