@@ -26,6 +26,7 @@
                     <div class="col-xl-6 col-lg-4 d-flex justify-content-end"> <!-- Added d-flex and justify-content-end -->
                         <div id="news-flash" class="d-inline-block text-end"> <!-- Added text-end -->
                             <ul>
+                                <!-- NEWS FLASH dekhano hoyse-->
                                 <li>Get great devices up to 50% off <a href="shop.html">View details</a></li>
                                 <li>Supper Value Deals - Save more with coupons</li>
                                 <li>Trendy 25silver jewelry, save up 35% off today <a href="shop.html">Shop now</a></li>
@@ -163,18 +164,7 @@
                                                                 <li><a class="dropdown-item nav-link nav_item" href="#">class 8 full books</a></li>
                                                             </ul>
                                                         </li>
-                                                        {{-- <li class="mega-menu-col col-lg-6">
-                                                            <ul>
-                                                                <li><span class="submenu-title">Suits & Blazers</span></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Blazers</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Suit Jackets</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Suit Pants</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Suits</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Vests</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Tailor-made Suits</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Cover-Ups</a></li>
-                                                            </ul>
-                                                        </li> --}}
+
                                                     </ul>
                                                 </li>
                                                 <li class="mega-menu-col col-lg-5">
@@ -209,19 +199,7 @@
                                                                 <li><a class="dropdown-item nav-link nav_item" href="#">Byomkesh Bakshi Series</a></li>
                                                             </ul>
                                                         </li>
-                                                        {{-- <li class="mega-menu-col col-lg-6">
-                                                            <ul>
-                                                                <li><span class="submenu-title">Accessories</span></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Screen Protectors</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Wire Chargers</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Wireless Chargers</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Car Chargers</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Power Bank</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Armbands</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Dust Plug</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Signal Boosters</a></li>
-                                                            </ul>
-                                                        </li> --}}
+
                                                     </ul>
                                                 </li>
                                                 <li class="mega-menu-col col-lg-5">
@@ -249,17 +227,7 @@
                                     <li><a href="shop.html"><i class="surfsidemedia-font-cpu"></i>Prothom Alo</a></li>
                                     <li><a href="shop.html"><i class="surfsidemedia-font-diamond"></i>Moushalkal</a></li>
                                     <li><a href="shop.html"><i class="surfsidemedia-font-home"></i>Jibonananda Daser Kobita</a></li>
-                                    {{-- <li><a href="shop.html"><i class="surfsidemedia-font-high-heels"></i>Shoes</a></li>
-                                    <li><a href="shop.html"><i class="surfsidemedia-font-teddy-bear"></i>Mother & Kids</a></li>
-                                    <li><a href="shop.html"><i class="surfsidemedia-font-kite"></i>Outdoor fun</a></li>
-                                    <li>
-                                        <ul class="more_slide_open" style="display: none;">
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-desktop"></i>Beauty, Health</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-cpu"></i>Bags and Shoes</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-diamond"></i>Consumer Electronics</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-home"></i>Automobiles & Motorcycles</a></li>
-                                        </ul>
-                                    </li> --}}
+
                                 </ul>
                                 <div class="more_categories">Show more...</div>
                             </div>
