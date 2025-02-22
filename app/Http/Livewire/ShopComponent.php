@@ -15,7 +15,8 @@ class ShopComponent extends Component
 
         $categories = Category::get();
         $products =Product::paginate(12);
+        $nproducts = Product::latest()->take(1)->get();
 
-        return view('livewire.shop-component',['categories'=>$categories,'products'=>$products]);
+        return view('livewire.shop-component',['categories'=>$categories,'products'=>$products,'nproducts'=>$nproducts]);
     }
 }
