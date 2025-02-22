@@ -17,6 +17,13 @@ return new class extends Migration
             $table->id();
             $table->string('name')->unique();
             $table->string('slug')->unique();
+            $table->string('short_description');
+            $table->longText('long_description')->nullable();
+            $table->decimal('regular_price');
+            $table->decimal('sale_price');
+            $table->string('image');
+            $table->string('images')->nullable();
+            $table->string('category_id');
             $table->timestamps();
         });
     }
