@@ -534,6 +534,36 @@
         </div>
     </footer>
 
+    <style>
+        footer.main {
+            background: linear-gradient(to bottom, #002733, #00424e);
+            color: white;
+            padding: 30px 0;
+        }
+        footer a {
+            color: #f5b400;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .footer-list li {
+            list-style: none;
+            margin-bottom: 8px;
+        }
+        .footer-list li a {
+            color: white;
+        }
+        .footer-list li a:hover {
+            text-decoration: underline;
+        }
+        .download-app img {
+            width: 120px;
+            margin-right: 10px;
+        }
+    </style>
+
+
     <!-- Vendor JS-->
 <script src="{{asset('/')}}assets/js/vendor/modernizr-3.6.0.min.js"></script>
 <script src="{{asset('/')}}assets/js/vendor/jquery-3.6.0.min.js"></script>
