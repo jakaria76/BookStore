@@ -5,6 +5,9 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Product;
 use App\Models\Category ;
+use Gloudemans\Shoppingcart\Facades\Cart;
+
+
 
 class DetailsComponent extends Component
 {
@@ -12,6 +15,12 @@ class DetailsComponent extends Component
     public $slug;
     public function mount($slug){
         $this->slug=$slug;
+    }
+
+    public function Store($product_id,$product_name,$product_price)
+    {
+        Cart::instance('cart')->add($product_id,$product_name,1,$product_price)->associate('App\Models\Product');
+        return redirect()->route('cart');
     }
     public function render()
     {
