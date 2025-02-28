@@ -3,11 +3,41 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 
 class CartComponent extends Component
 
 {
+    public function increaseQuantity($value)
+    {
+      $product=Cart::instance('cart')->get($value);
+      $qty=$product->qty+1;
+      Cart::instance('cart')->update($value,$qty);
+    }
 
+
+    public function decreaseQuantity($value)
+    {
+      $product=Cart::instance('cart')->get($value);
+      $qty=$product->qty-1;
+      Cart::instance('cart')->update($value,$qty);
+    }
+
+
+    public function destory($id)
+    {
+      Cart::instance('cart')->remove($id);
+      flash('Cart item has been remove');
+    }
+
+
+    public function clearcart()
+    {
+        Cart::instance('cart')->destroy();
+        flash('All cart items has been remove');
+
+    }
 
     public function render()
     {
