@@ -28,11 +28,15 @@ class DetailsComponent extends Component
 
         $product = Product::where("slug", $this->slug)->first();
 
+        $image=$product->image;
+        $images=json_decode($product->images);
+        array_splice($images,0,0,$image);
+
         $rproducts=Product::where('category_id', $product->category_id)->get();
 
         $nproducts = Product::latest()->take(1)->get();
         $categories = Category::get();
 
-        return view('livewire.details-component', ['product'=> $product,'rproducts'=>$rproducts ,'nproducts'=>$nproducts,'categoris'=>$categories]);
+        return view('livewire.details-component', ['product'=> $product,'rproducts'=>$rproducts ,'nproducts'=>$nproducts,'categoris'=>$categories,'images'=>$images]);
     }
 }

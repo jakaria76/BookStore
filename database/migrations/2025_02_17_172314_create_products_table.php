@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
+    /
      * Run the migrations.
      *
      * @return void
@@ -22,13 +22,13 @@ return new class extends Migration
             $table->decimal('regular_price');
             $table->decimal('sale_price');
             $table->string('image');
-            $table->string('images')->nullable();
+            $table->longText('images')->nullable();
             $table->string('category_id');
             $table->timestamps();
         });
     }
 
-    /**
+    /
      * Reverse the migrations.
      *
      * @return void
