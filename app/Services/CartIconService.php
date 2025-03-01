@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\CartIconService;
+namespace App\Services;
 
 use Gloudemans\Shoppingcart\Facades\Cart;
 
