@@ -14,7 +14,7 @@
                     <div class="col-lg-9">
                         <div class="shop-product-fillter">
                             <div class="totall-product">
-                                <p> We found <strong class="text-brand">688</strong> items for you!</p>
+                                <p> We found <strong class="text-brand">{{$products->total()}}</strong> items for you!</p>
                             </div>
                             <div class="sort-by-product-area">
                                 <div class="sort-by-cover mr-10">
@@ -23,16 +23,16 @@
                                             <span><i class="fi-rs-apps"></i>Show:</span>
                                         </div>
                                         <div class="sort-by-dropdown-wrap">
-                                            <span> 50 <i class="fi-rs-angle-small-down"></i></span>
+                                            <span>{{$pagesize}} <i class="fi-rs-angle-small-down"></i></span>
                                         </div>
                                     </div>
                                     <div class="sort-by-dropdown">
                                         <ul>
-                                            <li><a class="active" href="#">50</a></li>
-                                            <li><a href="#">100</a></li>
-                                            <li><a href="#">150</a></li>
-                                            <li><a href="#">200</a></li>
-                                            <li><a href="#">All</a></li>
+                                            <li><a class="{{$pagesize==12?'active':''}}" href="#" wire:click.prevent="changepageSize(12)">12</a></li>
+                                            <li><a class="{{$pagesize==24?'active':''}}" href="#"wire:click.prevent="changepageSize(24)">24</a></li>
+                                            <li><a class="{{$pagesize==36?'active':''}}" href="#"wire:click.prevent="changepageSize(36)">36</a></li>
+                                            <li><a class="{{$pagesize==48?'active':''}}" href="#"wire:click.prevent="changepageSize(48)">48</a></li>
+                                            <li><a class="{{$pagesize==60?'active':''}}" href="#"wire:click.prevent="changepageSize(60)">60</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -42,16 +42,16 @@
                                             <span><i class="fi-rs-apps-sort"></i>Sort by:</span>
                                         </div>
                                         <div class="sort-by-dropdown-wrap">
-                                            <span> Featured <i class="fi-rs-angle-small-down"></i></span>
+                                            <span> Default Shorting <i class="fi-rs-angle-small-down"></i></span>
                                         </div>
                                     </div>
                                     <div class="sort-by-dropdown">
                                         <ul>
-                                            <li><a class="active" href="#">Featured</a></li>
-                                            <li><a href="#">Price: Low to High</a></li>
-                                            <li><a href="#">Price: High to Low</a></li>
-                                            <li><a href="#">Release Date</a></li>
-                                            <li><a href="#">Avg. Rating</a></li>
+                                            <li><a class="{{$orderBy=='Default Shorting'?'active':''}}" href="#" wire:click.prevent="ChangeOrderBy('Default Shorting')">Default Shorting</a></li>
+                                            <li><a class="{{$orderBy=='Price: Low to High'?'active':''}}" href="#" wire:click.prevent="ChangeOrderBy('Price: Low to High')">Price: Low to High</a></li>
+                                            <li><a class="{{$orderBy=='Price: High to Low'?'active':''}}" href="#" wire:click.prevent="ChangeOrderBy('Price: High to Low')">Price: High to Low</a></li>
+                                            <li><a class="{{$orderBy=='Product By Newness'?'active':''}}" href="#" wire:click.prevent="ChangeOrderBy('Product By Newness')">Product By Newness</a></li>
+
                                         </ul>
                                     </div>
                                 </div>
