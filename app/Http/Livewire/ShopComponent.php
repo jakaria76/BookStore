@@ -4,28 +4,19 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use Livewire\WithPagination;
-use App\Services\ProductService;
+use App\Models\Category;
+use App\Models\Product;
 
 class ShopComponent extends Component
 {
     use WithPagination;
 
-
-
     public $pagesize = 12;
-    public $orderBy = 'Default Shorting';
-
-    public $min_price=0;
-    public $max_price=1000;
+    public $orderBy = 'Default Sorting';
+    public $min_price = 0;
+    public $max_price = 1000;
 
     protected $paginationTheme = 'bootstrap';
-
-    protected $productService;
-
-    public function __construct()
-    {
-        $this->productService = new ProductService();
-    }
 
     public function changepageSize($size)
     {
@@ -37,17 +28,42 @@ class ShopComponent extends Component
         $this->orderBy = $order;
     }
 
+    public function getCategories()
+    {
+        return Category::all();
+    }
+
+    public function getProducts()
+    {
+        if ($this->orderBy == 'Price: Low to High') {
+            return Product::whereBetween('sale_price', [$this->min_price, $this->max_price])
+                ->orderBy('sale_price', 'asc')
+                ->paginate($this->pagesize);
+        } elseif ($this->orderBy == 'Price: High to Low') {
+            return Product::whereBetween('sale_price', [$this->min_price, $this->max_price])
+                ->orderBy('sale_price', 'desc')
+                ->paginate($this->pagesize);
+        } elseif ($this->orderBy == 'Product By Newness') {
+            return Product::whereBetween('sale_price', [$this->min_price, $this->max_price])
+                ->orderBy('created_at', 'desc')
+                ->paginate($this->pagesize);
+        } else {
+            return Product::whereBetween('sale_price', [$this->min_price, $this->max_price])
+                ->paginate($this->pagesize);
+        }
+    }
+
+    public function getLatestProduct()
+    {
+        return Product::latest()->take(1)->get();
+    }
+
     public function render()
     {
-        $categories = $this->productService->getCategories();
-        $products = $this->productService->getProducts($this->orderBy, $this->pagesize, $this->min_price, $this->max_price);
-        $nproducts = $this->productService->getLatestProduct();
-
         return view('livewire.shop-component', [
-            'categories' => $categories,
-            'products' => $products,
-            'nproducts' => $nproducts
+            'categories' => $this->getCategories(),
+            'products' => $this->getProducts(),
+            'nproducts' => $this->getLatestProduct()
         ]);
     }
 }
-//caesium
