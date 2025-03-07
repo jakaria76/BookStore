@@ -37,7 +37,7 @@ class DetailsComponent extends Component
 
         $rproducts = Product::where('category_id', $product->category_id)->get();
         $nproducts = Product::latest()->take(1)->get();
-        $categories = Category::get();
+        $categories = Category::get(); //caesium
 
         return view('livewire.details-component', [
             'product' => $product,

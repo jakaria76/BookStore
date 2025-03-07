@@ -10,8 +10,14 @@ class ShopComponent extends Component
 {
     use WithPagination;
 
+
+
     public $pagesize = 12;
     public $orderBy = 'Default Shorting';
+
+    public $min_price=0;
+    public $max_price=1000;
+
     protected $paginationTheme = 'bootstrap';
 
     protected $productService;
@@ -34,7 +40,7 @@ class ShopComponent extends Component
     public function render()
     {
         $categories = $this->productService->getCategories();
-        $products = $this->productService->getProducts($this->orderBy, $this->pagesize);
+        $products = $this->productService->getProducts($this->orderBy, $this->pagesize, $this->min_price, $this->max_price);
         $nproducts = $this->productService->getLatestProduct();
 
         return view('livewire.shop-component', [
@@ -44,3 +50,4 @@ class ShopComponent extends Component
         ]);
     }
 }
+//caesium

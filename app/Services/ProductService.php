@@ -12,16 +12,16 @@ class ProductService
         return Category::all();
     }
 
-    public function getProducts($orderBy, $pageSize)
+    public function getProducts($orderBy, $pageSize, $min_price, $max_price)
     {
         if ($orderBy == 'Price: Low to High') {
-            return Product::orderBy('sale_price', 'asc')->paginate($pageSize);
+            return Product::whereBetween('sale_price',[$this->$min_price,$this->$max_price])-> orderBy('sale_price', 'asc')->paginate($pageSize);
         } elseif ($orderBy == 'Price: High to Low') {
-            return Product::orderBy('sale_price', 'desc')->paginate($pageSize);
+            return Product::whereBetween('sale_price',[$this->$min_price,$this->$max_price])-> orderBy('sale_price', 'desc')->paginate($pageSize);
         } elseif ($orderBy == 'Product By Newness') {
-            return Product::orderBy('created_at', 'desc')->paginate($pageSize);
+            return Product:: whereBetween('sale_price',[$this->$min_price,$this->$max_price])-> orderBy('created_at', 'desc')->paginate($pageSize);
         } else {
-            return Product::paginate($pageSize);
+            return Product:: whereBetween('sale_price',[$min_price,$max_price])-> paginate($pageSize);
         }
     }
 
