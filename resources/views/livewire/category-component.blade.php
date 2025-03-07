@@ -71,9 +71,7 @@
 
                                             </a>
                                         </div>
-                                        <div class="product-action-1">
-                                            <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                        </div>
+
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="hot">Hot</span>
                                         </div>
@@ -92,9 +90,7 @@
                                             <span>&#2547;{{$product->sale_price}} </span>
                                             <span class="old-price">&#2547;{{$product->regular_price}}</span>
                                         </div>
-                                        <div class="product-action-1 show">
-                                            <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.php"><i class="fi-rs-shopping-bag-add"></i></a>
-                                        </div>
+                                        
                                     </div>
                                 </div>
                             </div>

@@ -71,7 +71,7 @@
 
                                             </a>
                                         </div>
-
+                                        
                                         <div class="product-badges product-badges-position product-badges-mrg">
                                             <span class="hot">Hot</span>
                                         </div>
@@ -90,7 +90,7 @@
                                             <span>&#2547;{{$product->sale_price}} </span>
                                             <span class="old-price">&#2547;{{$product->regular_price}}</span>
                                         </div>
-                                        
+
                                     </div>
                                 </div>
                             </div>
