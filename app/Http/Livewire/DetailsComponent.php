@@ -10,16 +10,20 @@ use Gloudemans\Shoppingcart\Facades\Cart; // ✅ Import Cart directly
 class DetailsComponent extends Component
 {
     public $slug;
+    public $qty;
 
     public function mount($slug)
     {
         $this->slug = $slug;
+        $this->qty=1;
     }
 
     public function Store($product_id, $product_name, $product_price)
     {
         Cart::instance('cart')->add($product_id, $product_name, 1, $product_price)->associate('App\Models\Product'); // ✅ Add to cart directly
-        return redirect()->route('cart');
+        //return redirect()->route('cart');
+        $this->emitTo('carticon-component','refreshComponent');
+        flash('cart item has been added');
     }
 
 
@@ -43,6 +47,18 @@ class DetailsComponent extends Component
     }
 
 
+    public function QtyIncrease()
+    {
+       $this->qty++;
+    }
+    public function Qtydecrease()
+    {
+       if($this->qty>1)
+       {
+        $this->qty--;
+       }
+    }
+
     public function render()
     {
         $product = Product::where("slug", $this->slug)->first();
@@ -53,13 +69,18 @@ class DetailsComponent extends Component
         $rproducts = Product::where('category_id', $product->category_id)->get();
         $nproducts = Product::latest()->take(1)->get();
         $categories = Category::get();
+        $gproducts=Product::inRandomOrder()->take(3)->get();
+
 
         return view('livewire.details-component', [
             'product' => $product,
             'rproducts' => $rproducts,
             'nproducts' => $nproducts,
-            'categoris' => $categories,
-            'images' => $images
+            'categories' => $categories, // Corrected here
+            'images' => $images,
+            'gproducts'=>$gproducts,
+
         ]);
+
     }
 }

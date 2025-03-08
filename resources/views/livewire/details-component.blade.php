@@ -8,7 +8,87 @@
             color:#FFF!important;
         }
     </style>
-    <main class="main">
+     <main class="main">
+
+<div wire:ignore class="modal fade custom-modal" id="quickViewModal" tabindex="-1" aria-labelledby="quickViewModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12 col-sm-12 col-xs-12">
+                        <div class="detail-info">
+                            <h3 class="title-detail mt-30">Colorful Pattern Shirts HD450</h3>
+                            
+                            <div class="clearfix product-price-cover">
+                                <div class="product-price primary-color float-left">
+                                    <ins><span class="text-brand">$120.00</span></ins>
+                                    <ins><span class="old-price font-md ml-15">$200.00</span></ins>
+                                    <span class="save-price  font-md color3 ml-15">25% Off</span>
+                                </div>
+                            </div>
+                            <div class="bt-1 border-color-1 mt-15 mb-15"></div>
+                            <div class="short-desc mb-30">
+                                <p class="font-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi,!</p>
+                            </div>
+                            <main class="main">
+                                <section class="mt-50 mb-50">
+                                    <div class="container" style="max-width: 960px;"> <!-- Adjust width here -->
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="row product-grid-3">
+                                                    @foreach ($gproducts as $gproduct)
+                                                    <div class="col-lg-4 col-md-4 col-6 col-sm-6">
+                                                        <div class="product-cart-wrap mb-30">
+                                                            <div class="product-img-action-wrap">
+                                                                <div class="product-img product-img-zoom">
+                                                                    <a href="product-details.html">
+                                                                        <img class="default-img" src="{{$gproduct->image}}" alt="">
+                                                                    </a>
+                                                                </div>
+                                                                <div class="product-badges product-badges-position product-badges-mrg">
+                                                                    <span class="hot">Hot</span>
+                                                                </div>
+                                                            </div>
+                                                            <div class="product-content-wrap">
+                                                                <div class="product-category">
+                                                                    <a href="shop.html">Music</a>
+                                                                </div>
+                                                                <h2><a href="product-details.html">{{$gproduct->name}}</a></h2>
+                                                                <div class="rating-result" title="90%">
+                                                                    <span>
+                                                                        <span>90%</span>
+                                                                    </span>
+                                                                </div>
+                                                                <div class="product-price">
+                                                                    <span>&#2547; {{$gproduct->regular_price}} </span>
+                                                                    <span class="old-price">&#2547; {{$gproduct->sale_price}}</span>
+                                                                </div>
+                                                                <div class="product-action-1 show">
+                                                                    <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.php"><i class="fi-rs-shopping-bag-add"></i></a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    @endforeach
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </main>
+
+                        </div>
+                        <!-- Detail Info -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
         <div class="page-header breadcrumb-wrap">
             <div class="container">
                 <div class="breadcrumb">
@@ -115,12 +195,12 @@
                                         <div class="bt-1 border-color-1 mt-30 mb-30"></div>
                                         <div class="detail-extralink">
                                             <div class="detail-qty border radius">
-                                                <a href="#" class="qty-down"><i class="fi-rs-angle-small-down"></i></a>
-                                                <span class="qty-val">1</span>
-                                                <a href="#" class="qty-up"><i class="fi-rs-angle-small-up"></i></a>
+                                                <a href="#" class="qty-down" wire:click.prevent="Qtydecrease()"><i class="fi-rs-angle-small-down"></i></a>
+                                                <span class="qty-val"wire:model="qty">{{$qty}}</span>
+                                                <a href="#" class="qty-up"wire:click.prevent="QtyIncrease()"><i class="fi-rs-angle-small-up"></i></a>
                                             </div>
                                             <div class="product-extra-link2">
-                                                <button type="submit" class="button button-add-to-cart" Wire:click.prevent="Store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">Add to cart</button>
+                                                <button type="submit" class="button button-add-to-cart" data-bs-toggle="modal" data-bs-target="#quickViewModal"  Wire:click.prevent="Store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">Add to cart</button>
 
                                                 @php
                                                     $witem=Cart::instance('wishlist')->content()->pluck('id')
@@ -418,7 +498,7 @@
                                             <div class="product-cart-wrap small hover-up">
                                                 <div class="product-img-action-wrap">
                                                     <div class="product-img product-img-zoom">
-                                                        <a href="product-details.html" tabindex="0">
+                                                        <a href="{{route('details',['slug'=>$rproduct->slug])}}" tabindex="0">
                                                             <img class="default-img img_thumbnail" src="{{$rproduct->image}}" alt="">
 
                                                         </a>
@@ -455,11 +535,16 @@
                         <div class="widget-category mb-30">
                             <h5 class="section-title style-1 mb-30 wow fadeIn animated">Category</h5>
                             <ul class="categories">
-                                @foreach($categoris as $categoris)
-                                <li><a href="shop.html">{{$categoris->name}}</a></li>
-                                @endforeach()
+                                @foreach($categories as $category)
+                                    <li>
+                                        <a href="{{ route('product.category', ['slug' => $category->slug]) }}">
+                                            {{ $category->name }}
+                                        </a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
+
                         <!-- Fillter By Price -->
 
                         <!-- Product sidebar Widget -->
@@ -474,7 +559,7 @@
                                     <img src="{{$nproduct->image}}" alt="#">
                                 </div>
                                 <div class="content pt-10">
-                                    <h5><a href="product-details.html">{{$nproduct->name}}</a></h5>
+                                    <h5><a href="{{route('details',['slug'=>$nproduct->slug])}}">{{$nproduct->name}}</a></h5>
                                     <p class="price mb-0 mt-5">&#2547;{{$nproduct->regular_price}}</p>
                                     <div class="product-rate">
                                         <div class="product-rating" style="width:90%"></div>
