@@ -26,6 +26,7 @@ class DetailsComponent extends Component
     public function addtoWishlist($product_id, $product_name, $product_price)
     {
         Cart::instance('wishlist')->add($product_id, $product_name, 1, $product_price)->associate('App\Models\Product');
+        $this->emitTo('wishlist-icon-component','refreshComponent');
         flash('wishlist item has been added');
     }
 
@@ -35,6 +36,7 @@ class DetailsComponent extends Component
          foreach(Cart::instance('wishlist')->content() as $witem){
             if($witem->id==$productID){
                Cart::instance('wishlist')->remove($witem->rowId);
+               $this->emitTo('wishlist-icon-component','refreshComponent');
                flash('wishlist item has been deleted');
             }
          }
