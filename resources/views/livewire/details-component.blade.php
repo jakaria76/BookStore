@@ -25,7 +25,7 @@
                         <div class="product-detail accordion-detail">
                             <div class="row mb-50">
                                 <div class="col-md-6 col-sm-12 col-xs-12">
-                                    <div class="detail-gallery">
+                                    <div class="detail-gallery" wire:ignore>
                                         <span class="zoom-icon"><i class="fi-rs-search"></i></span>
                                         <!-- MAIN SLIDES -->
                                         <div class="product-image-slider">
