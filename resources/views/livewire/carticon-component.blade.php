@@ -1,7 +1,7 @@
 <div>
     <div class="header-action-icon-2">
         <a class="mini-cart-icon" href="cart.html">
-            <img alt="Surfside Media" src="assets/imgs/theme/icons/icon-cart.svg">
+            <img alt="Surfside Media" src="{{asset('/')}}assets/imgs/theme/icons/icon-cart.svg">
 
             @if(Cart::instance('cart')->count>0)
             <span class="pro-count blue">{{Cart::instance('cart')->count()}}</span>

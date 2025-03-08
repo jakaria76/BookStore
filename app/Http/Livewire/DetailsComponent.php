@@ -5,17 +5,11 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use App\Models\Product;
 use App\Models\Category;
-use App\Services\DetailsComponentService; // ✅ Import the service
+use Gloudemans\Shoppingcart\Facades\Cart; // ✅ Import Cart directly
 
 class DetailsComponent extends Component
 {
     public $slug;
-    protected $detailsComponentService; // Declare the service variable
-
-    public function __construct()
-    {
-        $this->detailsComponentService = new DetailsComponentService(); // Initialize the service
-    }
 
     public function mount($slug)
     {
@@ -24,9 +18,28 @@ class DetailsComponent extends Component
 
     public function Store($product_id, $product_name, $product_price)
     {
-        $this->detailsComponentService->addItemToCart($product_id, $product_name, $product_price); // Use the service
+        Cart::instance('cart')->add($product_id, $product_name, 1, $product_price)->associate('App\Models\Product'); // ✅ Add to cart directly
         return redirect()->route('cart');
     }
+
+
+    public function addtoWishlist($product_id, $product_name, $product_price)
+    {
+        Cart::instance('wishlist')->add($product_id, $product_name, 1, $product_price)->associate('App\Models\Product');
+        flash('wishlist item has been added');
+    }
+
+
+    public function removefromWishlist($productID)
+    {
+         foreach(Cart::instance('wishlist')->content() as $witem){
+            if($witem->id==$productID){
+               Cart::instance('wishlist')->remove($witem->rowId);
+               flash('wishlist item has been deleted');
+            }
+         }
+    }
+
 
     public function render()
     {
@@ -37,7 +50,7 @@ class DetailsComponent extends Component
 
         $rproducts = Product::where('category_id', $product->category_id)->get();
         $nproducts = Product::latest()->take(1)->get();
-        $categories = Category::get(); //caesium
+        $categories = Category::get();
 
         return view('livewire.details-component', [
             'product' => $product,

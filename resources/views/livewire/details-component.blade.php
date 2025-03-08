@@ -1,4 +1,13 @@
 <div>
+    <style>
+        .wishlisted{
+            background-color: #f15412!important;
+            border:1px solid transparent!important;
+        }
+        .wishlisted i{
+            color:#FFF!important;
+        }
+    </style>
     <main class="main">
         <div class="page-header breadcrumb-wrap">
             <div class="container">
@@ -112,8 +121,21 @@
                                             </div>
                                             <div class="product-extra-link2">
                                                 <button type="submit" class="button button-add-to-cart" Wire:click.prevent="Store({{$product->id}},'{{$product->name}}',{{$product->regular_price}})">Add to cart</button>
-                                                <a aria-label="Add To Wishlist" class="action-btn hover-up" href="wishlist.php"><i class="fi-rs-heart"></i></a>
-                                                <a aria-label="Compare" class="action-btn hover-up" href="compare.php"><i class="fi-rs-shuffle"></i></a>
+
+                                                @php
+                                                    $witem=Cart::instance('wishlist')->content()->pluck('id')
+                                                @endphp
+
+                                                @if ($witem->contains($product->id))
+                                                      <a aria-label="Remove from Wishlist" class="action-btn hover-up wishlisted" href="wishlist.php"wire:click.prevent="removefromWishlist({{$product->id}})"><i class="fi-rs-heart"></i></a>
+
+                                                @else
+                                                      <a aria-label="Wishlist has been added" class="action-btn hover-up wishlisted" href="wishlist.php"wire:click.prevent="addtoWishlist({{$product->id}},'{{$product->name}}',{{$product->regular_price}})"><i class="fi-rs-heart"></i></a>
+
+                                                @endif
+
+
+
                                             </div>
                                         </div>
                                         <ul class="product-meta font-xs color-grey mt-50">
