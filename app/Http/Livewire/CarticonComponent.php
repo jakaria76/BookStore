@@ -3,23 +3,23 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
-use App\Services\CartIconService; // ✅ Use the correct namespace
+use Gloudemans\Shoppingcart\Facades\Cart; // Merged directly into the component
 
 class CarticonComponent extends Component
 {
-    protected $cartIconService;
     protected $listeners = ['refreshComponent' => '$refresh'];
-
-    public function __construct()
-    {
-        $this->cartIconService = new CartIconService(); // ✅ No subfolder issue now
-    }
 
     public function remove($id)
     {
-        $this->cartIconService->removeItem($id);
+        $this->removeItem($id); // Merged method
         flash('Cart item has been removed');
         $this->emitTo('cart-component', 'refreshComponent');
+    }
+
+    // Merged method from CartIconService
+    public function removeItem($rowId)
+    {
+        Cart::instance('cart')->remove($rowId);
     }
 
     public function render()

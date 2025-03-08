@@ -87,7 +87,8 @@
                                     <span class="old-price">&#2547; {{$item->model->regular_price}}</span>
                                 </div>
                                 <div class="product-action-1 show">
-                                    <a aria-label="Add To Cart" class="action-btn hover-up" href="shop-cart.php"><i class="fi-rs-shopping-bag-add"></i></a>
+                                    <a aria-label="Remove To Cart" class="action-btn hover-up" href="shop-cart.php" wire:click.prevent="removewishlistProduct('{{$item->rowId}}')"><i class="fi-rs-shopping-bag-add"></i></a>
+                                    <a aria-label="Mov To Cart" class="action-btn hover-up"  href="#"wire:click.prevent="moveToCart('{{$item->rowId}}')"><i class="fi-rs-shopping-bag-add"></i></a>
                                 </div>
                             </div>
                         </div>
