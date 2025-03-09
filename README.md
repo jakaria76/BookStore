@@ -32,6 +32,31 @@ Book Display: Features an organized and user-friendly dashboard for easy browsin
 Admin Control: Grants admins full control over platform management, including user accounts, books, and transactions.
 Search and Filter: Provides advanced options to search and filter books based on categories, prices, and more.
 Book Purchase: Facilitates purchases using currency.
+TImeline :
+
+Milestones: Checkpoint 1
+Completed user authentication system:
+User Sign-Up (registration) for both buyers and sellers.
+User Login (authentication) with email and password.
+User roles (buyer, seller) assigned and stored in the database.
+Basic front-end integration for login and sign-up pages.
+Checkpoint 2: Frontend Homepage Development
+
+Milestones: Checkpoint 2
+Completed frontend design and development for the homepage:
+Display of featured books and categories.
+Navigation bar, footer, and basic layout.
+Frontend responsiveness and UI optimization for different screen sizes.
+Basic interactivity, including linking book listings to product detail pages.
+Checkpoint 3: Homepage, Shop Page (Frontend & Backend)
+
+Milestones: Checkpoint 3
+Completed both frontend and backend integration for:
+Homepage: Dynamic loading of books and categories.
+Shop Page: Filters, search functionality, and displaying books in different categories.
+Backend API integration to fetch book data for display on both the homepage and shop page.
+Book details page linked to the shop page, allowing users to view more information and add books to their cart.
+Completed database setup for books, categories, and seller information.
 
 Tech Stack:
 
