@@ -69,7 +69,7 @@ class DetailsComponent extends Component
         $rproducts = Product::where('category_id', $product->category_id)->get();
         $nproducts = Product::latest()->take(1)->get();
         $categories = Category::get();
-        $gproducts=Product::inRandomOrder()->take(3)->get();
+        $gproducts=Product::inRandomOrder()->take(4)->get();
 
 
         return view('livewire.details-component', [

@@ -15,31 +15,81 @@
         <div class="modal-content">
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             <div class="modal-body">
-                <div class="row">
+                <div class="row g-1">
                     <div class="col-md-12 col-sm-12 col-xs-12">
                         <div class="detail-info">
-                            <h3 class="title-detail mt-30">Colorful Pattern Shirts HD450</h3>
-                            
+                            <h3 class="title-detail mt-30"></h3>
+
                             <div class="clearfix product-price-cover">
                                 <div class="product-price primary-color float-left">
-                                    <ins><span class="text-brand">$120.00</span></ins>
-                                    <ins><span class="old-price font-md ml-15">$200.00</span></ins>
-                                    <span class="save-price  font-md color3 ml-15">25% Off</span>
+                                    <ins><span class=" font-lg text-brand">1 new item have been added to your cart</span></ins>
+
+
+
+
+                                    <!-- HTML !-->
+<button class="button-29" role="button"><a href="{{route('cart')}}">Add to cart</a></button>
+<style>
+/* CSS */
+.button-29 {
+  align-items: center;
+  appearance: none;
+  background-image: radial-gradient(100% 100% at 100% 0, #5adaff 0, #5468ff 100%);
+  border: 0;
+  border-radius: 6px;
+  box-shadow: rgba(45, 35, 66, .4) 0 2px 4px,rgba(45, 35, 66, .3) 0 7px 13px -3px,rgba(58, 65, 111, .5) 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: "JetBrains Mono",monospace;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
+  text-align: left;
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+}
+
+.button-29:focus {
+  box-shadow: #3c4fe0 0 0 0 1.5px inset, rgba(45, 35, 66, .4) 0 2px 4px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+}
+
+.button-29:hover {
+  box-shadow: rgba(45, 35, 66, .4) 0 4px 8px, rgba(45, 35, 66, .3) 0 7px 13px -3px, #3c4fe0 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-29:active {
+  box-shadow: #3c4fe0 0 3px 7px inset;
+  transform: translateY(2px);
+}
+</style>
                                 </div>
                             </div>
                             <div class="bt-1 border-color-1 mt-15 mb-15"></div>
-                            <div class="short-desc mb-30">
-                                <p class="font-sm">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Aliquam rem officia, corrupti reiciendis minima nisi modi,!</p>
-                            </div>
+
                             <main class="main">
-                                <section class="mt-50 mb-50">
+                                <section class="mt-20 mb-10">
                                     <div class="container" style="max-width: 960px;"> <!-- Adjust width here -->
                                         <div class="row">
                                             <div class="col-lg-12">
-                                                <div class="row product-grid-3">
+                                                <h3 class="section-title mb-20"><span>More Items</span> To Consider</h3>
+                                                <div class="row product-grid-3 g-1">
                                                     @foreach ($gproducts as $gproduct)
-                                                    <div class="col-lg-4 col-md-4 col-6 col-sm-6">
-                                                        <div class="product-cart-wrap mb-30">
+                                                    <div class="col-lg-3 col-md-3 col-6 col-sm-6">
+                                                        <div class="product-cart-wrap mb-10">
                                                             <div class="product-img-action-wrap">
                                                                 <div class="product-img product-img-zoom">
                                                                     <a href="product-details.html">
