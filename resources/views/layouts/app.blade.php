@@ -26,6 +26,7 @@
                     <div class="col-xl-6 col-lg-4 d-flex justify-content-end"> <!-- Added d-flex and justify-content-end -->
                         <div id="news-flash" class="d-inline-block text-end"> <!-- Added text-end -->
                             <ul>
+                                <!-- NEWS FLASH dekhano hoyse-->
                                 <li>Get great devices up to 50% off <a href="shop.html">View details</a></li>
                                 <li>Supper Value Deals - Save more with coupons</li>
                                 <li>Trendy 25silver jewelry, save up 35% off today <a href="shop.html">Shop now</a></li>
@@ -62,22 +63,13 @@
             <div class="container">
                 <div class="header-wrap">
                     <div class="logo logo-width-1">
-                        <a href="index.html"><img src="assets/imgs/logo/logo.png" alt="logo"></a>
+                        <a href="index.html"><img src="{{asset('/')}}assets/imgs/logo/logo.png" alt="logo"></a>
                     </div>
                     <div class="header-right">
-                        <div class="search-style-1">
-                            <form action="#">
-                                <input type="text" placeholder="Search for items...">
-                            </form>
-                        </div>
+                        @livewire('search-header-component')
                         <div class="header-action-right">
                             <div class="header-action-2">
-                                <div class="header-action-icon-2">
-                                    <a href="shop-wishlist.php">
-                                        <img class="svgInject" alt="Surfside Media" src="assets/imgs/theme/icons/icon-heart.svg">
-                                        <span class="pro-count blue">4</span>
-                                     </a>
-                                </div>
+                                @livewire('wishlist-icon-component')
 
                                 @livewire('carticon-component');
 
@@ -92,7 +84,7 @@
             <div class="container">
                 <div class="header-wrap header-space-between position-relative">
                     <div class="logo logo-width-1 d-block d-lg-none">
-                        <a href="index.html"><img src="assets/imgs/logo/logo.png" alt="logo"></a>
+                        <a href="index.html"><img src="{{asset('/')}}assets/imgs/logo/logo.png" alt="logo"></a>
                     </div>
                     <div class="header-nav d-none d-lg-flex">
                         <div class="main-categori-wrap d-none d-lg-block">
@@ -163,18 +155,7 @@
                                                                 <li><a class="dropdown-item nav-link nav_item" href="#">class 8 full books</a></li>
                                                             </ul>
                                                         </li>
-                                                        {{-- <li class="mega-menu-col col-lg-6">
-                                                            <ul>
-                                                                <li><span class="submenu-title">Suits & Blazers</span></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Blazers</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Suit Jackets</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Suit Pants</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Suits</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Vests</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Tailor-made Suits</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Cover-Ups</a></li>
-                                                            </ul>
-                                                        </li> --}}
+
                                                     </ul>
                                                 </li>
                                                 <li class="mega-menu-col col-lg-5">
@@ -209,19 +190,7 @@
                                                                 <li><a class="dropdown-item nav-link nav_item" href="#">Byomkesh Bakshi Series</a></li>
                                                             </ul>
                                                         </li>
-                                                        {{-- <li class="mega-menu-col col-lg-6">
-                                                            <ul>
-                                                                <li><span class="submenu-title">Accessories</span></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Screen Protectors</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Wire Chargers</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Wireless Chargers</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Car Chargers</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Power Bank</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Armbands</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Dust Plug</a></li>
-                                                                <li><a class="dropdown-item nav-link nav_item" href="#">Signal Boosters</a></li>
-                                                            </ul>
-                                                        </li> --}}
+
                                                     </ul>
                                                 </li>
                                                 <li class="mega-menu-col col-lg-5">
@@ -249,17 +218,7 @@
                                     <li><a href="shop.html"><i class="surfsidemedia-font-cpu"></i>Prothom Alo</a></li>
                                     <li><a href="shop.html"><i class="surfsidemedia-font-diamond"></i>Moushalkal</a></li>
                                     <li><a href="shop.html"><i class="surfsidemedia-font-home"></i>Jibonananda Daser Kobita</a></li>
-                                    {{-- <li><a href="shop.html"><i class="surfsidemedia-font-high-heels"></i>Shoes</a></li>
-                                    <li><a href="shop.html"><i class="surfsidemedia-font-teddy-bear"></i>Mother & Kids</a></li>
-                                    <li><a href="shop.html"><i class="surfsidemedia-font-kite"></i>Outdoor fun</a></li>
-                                    <li>
-                                        <ul class="more_slide_open" style="display: none;">
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-desktop"></i>Beauty, Health</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-cpu"></i>Bags and Shoes</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-diamond"></i>Consumer Electronics</a></li>
-                                            <li><a href="shop.html"><i class="surfsidemedia-font-home"></i>Automobiles & Motorcycles</a></li>
-                                        </ul>
-                                    </li> --}}
+
                                 </ul>
                                 <div class="more_categories">Show more...</div>
                             </div>
@@ -306,13 +265,13 @@
                         <div class="header-action-2">
                             <div class="header-action-icon-2">
                                 <a href="shop-wishlist.php">
-                                    <img alt="Surfside Media" src="assets/imgs/theme/icons/icon-heart.svg">
+                                    <img alt="Surfside Media" src="{{asset('/')}}assets/imgs/theme/icons/icon-heart.svg">
                                     <span class="pro-count white">4</span>
                                 </a>
                             </div>
                             <div class="header-action-icon-2">
                                 <a class="mini-cart-icon" href="cart.html">
-                                    <img alt="Surfside Media" src="assets/imgs/theme/icons/icon-cart.svg">
+                                    <img alt="Surfside Media" src="{{asset('/')}}assets/imgs/theme/icons/icon-cart.svg">
                                     <span class="pro-count white">2</span>
                                 </a>
                                 <div class="cart-dropdown-wrap cart-dropdown-hm2">
@@ -370,7 +329,7 @@
         <div class="mobile-header-wrapper-inner">
             <div class="mobile-header-top">
                 <div class="mobile-header-logo">
-                    <a href="index.html"><img src="assets/imgs/logo/logo.png" alt="logo"></a>
+                    <a href="index.html"><img src="{{asset('/')}}assets/imgs/logo/logo.png" alt="logo"></a>
                 </div>
                 <div class="mobile-menu-close close-style-wrap close-style-position-inherit">
                     <button class="close-style search-close">
@@ -486,7 +445,7 @@
                     <div class="col-lg-4 col-md-6">
                         <div class="widget-about font-md mb-md-5 mb-lg-0">
                             <div class="logo logo-width-1 wow fadeIn animated">
-                                <a href="index.html"><img src="assets/imgs/logo/logo.png" alt="logo"></a>
+                                <a href="index.html"><img src="{{asset('/')}}assets/imgs/logo/logo.png" alt="logo"></a>
                             </div>
                             <h5 class="mt-20 mb-10 fw-600 text-grey-4 wow fadeIn animated">Contact</h5>
                             <p class="wow fadeIn animated">
@@ -566,6 +525,36 @@
         </div>
     </footer>
 
+    <style>
+        footer.main {
+            background: linear-gradient(to bottom, #002733, #00424e);
+            color: white;
+            padding: 30px 0;
+        }
+        footer a {
+            color: #f5b400;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+        .footer-list li {
+            list-style: none;
+            margin-bottom: 8px;
+        }
+        .footer-list li a {
+            color: white;
+        }
+        .footer-list li a:hover {
+            text-decoration: underline;
+        }
+        .download-app img {
+            width: 120px;
+            margin-right: 10px;
+        }
+    </style>
+
+
     <!-- Vendor JS-->
 <script src="{{asset('/')}}assets/js/vendor/modernizr-3.6.0.min.js"></script>
 <script src="{{asset('/')}}assets/js/vendor/jquery-3.6.0.min.js"></script>
@@ -592,6 +581,7 @@
 <script src="{{asset('/')}}assets/js/shop.js?v=3.3"></script>
 
 @livewireScripts
+@stack('scripts')
 
 </body>
 

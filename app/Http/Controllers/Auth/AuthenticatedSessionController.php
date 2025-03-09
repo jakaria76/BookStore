@@ -13,36 +13,45 @@ use Illuminate\View\View;
 class AuthenticatedSessionController extends Controller
 {
     /**
-     * Display the login view.
+     * Login page dekhabe.
+     *
+     * Ei method ta login page ta user er kase show korbe.
      */
     public function create(): View
     {
-        return view('auth.login');
+        return view('auth.login'); // resources/views/auth/login.blade.php file ta load korbe
     }
 
     /**
-     * Handle an incoming authentication request.
+     * Login request handle korbe.
+     *
+     * Ei method ta form er data check kore user ke login korbe
+     * ar tarpor take intended page e redirect korbe.
      */
     public function store(LoginRequest $request): RedirectResponse
     {
-        $request->authenticate();
+        $request->authenticate(); // LoginRequest er authenticate() method call kore user er info check korbe
 
-        $request->session()->regenerate();
+        $request->session()->regenerate(); // Session regenerate kore, jate security threat (session fixation) na thake
 
-        return redirect()->intended(RouteServiceProvider::HOME);
+        return redirect()->intended(RouteServiceProvider::HOME); // Successfully login hole intended page e pathabe,home page e pathabe
     }
 
     /**
-     * Destroy an authenticated session.
+     * Logout korar jonno.
+     *
+     * Ei method ta user ke logout korbe, session data shorabe,
+     * nijossho security er jonno session token regenerate korbe,
+     * ar user ke home page e pathabe.
      */
     public function destroy(Request $request): RedirectResponse
     {
-        Auth::guard('web')->logout();
+        Auth::guard('web')->logout(); // Current user ke logout kore dibe
 
-        $request->session()->invalidate();
+        $request->session()->invalidate(); // Session data invalid kore dibe, jate security threat na thake
 
-        $request->session()->regenerateToken();
+        $request->session()->regenerateToken(); // CSRF attack prevent korar jonno new session token create korbe
 
-        return redirect('/');
+        return redirect('/'); // Logout er pore home page e pathabe
     }
 }

@@ -2,43 +2,46 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
+use Laravel\Sanctum\HasApiTokens; 
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable; // Ei 3 ta trait use korse user model e
 
     /**
-     * The attributes that are mass assignable.
+     * Ei array er moddhe je field gula thakbe, user create/update korar somoy
+     * mass-assignment er maddhome update kora jabe.
      *
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
-        'email',
-        'password',
+        'name',      // User er naam
+        'email',     // User er email
+        'password',  // User er password (hashed)
     ];
 
     /**
-     * The attributes that should be hidden for serialization.
+     * Ei array er moddhe je field gula thakbe, segula serialization er somoy
+     * hide kora hobe. Mane jodi kono API response e user data dewa hoy,
+     * tahole eita dekhano hobe na.
      *
      * @var array<int, string>
      */
     protected $hidden = [
-        'password',
-        'remember_token',
+        'password',        // Password ke hide kore rakha
+        'remember_token',  // Authentication remember token hide rakha
     ];
 
     /**
-     * The attributes that should be cast.
+     * Ei array er moddhe je field gula thakbe, segula automatically specific type e
+     * convert hobe database theke fetch korar somoy.
      *
      * @var array<string, string>
      */
     protected $casts = [
-        'email_verified_at' => 'datetime',
+        'email_verified_at' => 'datetime', // Email verification er date time format convert korbe
     ];
 }

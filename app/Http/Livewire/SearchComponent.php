@@ -7,7 +7,7 @@ use Livewire\WithPagination;
 use App\Models\Category;
 use App\Models\Product;
 
-class ShopComponent extends Component
+class SearchComponent extends Component
 {
     use WithPagination;
 
@@ -15,6 +15,15 @@ class ShopComponent extends Component
     public $orderBy = 'Default Sorting';
     public $min_price = 0;
     public $max_price = 1000;
+
+    public $search;
+    public $search_term;
+
+    public function mount()
+    {
+        $this->fill(request()->only('search'));
+        $this->search_term='%'.$this->search.'%';
+    }
 
     protected $paginationTheme = 'bootstrap';
 
@@ -36,19 +45,19 @@ class ShopComponent extends Component
     public function getProducts()
     {
         if ($this->orderBy == 'Price: Low to High') {
-            return Product::whereBetween('sale_price', [$this->min_price, $this->max_price])
+            return Product::where('name','like',$this->search_term)->whereBetween('sale_price', [$this->min_price, $this->max_price])
                 ->orderBy('sale_price', 'asc')
                 ->paginate($this->pagesize);
         } elseif ($this->orderBy == 'Price: High to Low') {
-            return Product::whereBetween('sale_price', [$this->min_price, $this->max_price])
+            return Product::where('name','like',$this->search_term)->whereBetween('sale_price', [$this->min_price, $this->max_price])
                 ->orderBy('sale_price', 'desc')
                 ->paginate($this->pagesize);
         } elseif ($this->orderBy == 'Product By Newness') {
-            return Product::whereBetween('sale_price', [$this->min_price, $this->max_price])
+            return Product::where('name','like',$this->search_term)->whereBetween('sale_price', [$this->min_price, $this->max_price])
                 ->orderBy('created_at', 'desc')
                 ->paginate($this->pagesize);
         } else {
-            return Product::whereBetween('sale_price', [$this->min_price, $this->max_price])
+            return Product::where('name','like',$this->search_term)->whereBetween('sale_price', [$this->min_price, $this->max_price])
                 ->paginate($this->pagesize);
         }
     }
@@ -60,7 +69,7 @@ class ShopComponent extends Component
 
     public function render()
     {
-        return view('livewire.shop-component', [
+        return view('livewire.search-component', [
             'categories' => $this->getCategories(),
             'products' => $this->getProducts(),
             'nproducts' => $this->getLatestProduct()
