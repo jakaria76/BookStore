@@ -35,31 +35,40 @@ Book Purchase: Facilitates purchases using currency.
 TImeline :
 
 Project Timeline & Milestones
-Checkpoint 1: User Authentication (Login & Sign Up)
-Milestones:
+## Project Timeline & Milestones
 
-Completed user authentication system:
-User Sign-Up (registration) for both buyers and sellers.
-User Login (authentication) with email and password.
-User roles (buyer, seller) assigned and stored in the database.
-Basic front-end integration for login and sign-up pages.
-Checkpoint 2: Frontend Homepage Development
-Milestones:
+### Checkpoint 1: User Authentication (Login & Sign Up)
 
-Completed frontend design and development for the homepage:
-Display of featured books and categories.
-Navigation bar, footer, and basic layout.
-Frontend responsiveness and UI optimization for different screen sizes.
-Basic interactivity, including linking book listings to product detail pages.
-Checkpoint 3: Homepage, Shop Page (Frontend & Backend)
-Milestones:
+**Milestones:**
+- Completed user authentication system:
+  - User Sign-Up (registration) for both buyers and sellers.
+  - User Login (authentication) with email and password.
+  - User roles (buyer, seller) assigned and stored in the database.
+  - Basic front-end integration for login and sign-up pages.
 
-Completed both frontend and backend integration for:
-Homepage: Dynamic loading of books and categories.
-Shop Page: Filters, search functionality, and displaying books in different categories.
-Backend API integration: Fetch book data for display on both the homepage and shop page.
-Book Details Page: Linked to the shop page, allowing users to view more information and add books to their cart.
-Database setup: Completed for books, categories, and seller information.
+---
+
+### Checkpoint 2: Frontend Homepage Development
+
+**Milestones:**
+- Completed frontend design and development for the homepage:
+  - Display of featured books and categories.
+  - Navigation bar, footer, and basic layout.
+  - Frontend responsiveness and UI optimization for different screen sizes.
+  - Basic interactivity, including linking book listings to product detail pages.
+
+---
+
+### Checkpoint 3: Homepage, Shop Page (Frontend & Backend)
+
+**Milestones:**
+- Completed both frontend and backend integration for:
+  - **Homepage**: Dynamic loading of books and categories.
+  - **Shop Page**: Filters, search functionality, and displaying books in different categories.
+  - **Backend API integration**: Fetch book data for display on both the homepage and shop page.
+  - **Book Details Page**: Linked to the shop page, allowing users to view more information and add books to their cart.
+  - **Database setup**: Completed for books, categories, and seller information.
+
 Tech Stack:
 
 Backend: Laravel 
